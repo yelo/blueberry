@@ -1,6 +1,6 @@
-## Interface: 70300
+## Interface: 80000
 ## Author: yelo
-## Version: 1
+## Version: 2
 ## Title: |c4f86f7FFBlueberry|r
 ## Notes: You're blue (da ba dee)
 
