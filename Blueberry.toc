@@ -1,6 +1,6 @@
-## Interface: 100207
-## Author: yelo
-## Version: 5
+## Interface: 110002
+## Author: yelo <jimmy at kumpulainen dot se>
+## Version: 6
 ## Title: |c4f86f7FFBlueberry|r
 ## Notes: You're blue (da ba dee)
 
