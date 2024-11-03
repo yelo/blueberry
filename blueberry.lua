@@ -1,5 +1,5 @@
 --[[
-  Copyright (c) 2018 Jimmy Kumpulainen
+  Copyright (c) 2024 Jimmy Kumpulainen
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -22,15 +22,17 @@
 
 local entropicEmbrace = 256374
 
-local bf = CreateFrame("FRAME", "BlueberryFrame")
-bf:RegisterUnitEvent("UNIT_AURA", "player")
-bf:SetScript("OnEvent", function(self, event, ...)
-  for i=1,40 do
-    local name, _, _, _, _, expirationTime, _, _, _, spellId = UnitBuff("player",i)
-    if spellId == entropicEmbrace then
-      if expirationTime - GetTime() == 12 then
+local function Blueberry(self, event, ...)
+  for i = 1, 40 do
+    local aura = C_UnitAuras.GetBuffDataByIndex("player", i, "HELPFUL")
+    if aura ~= nil and aura.spellId == entropicEmbrace then
+      if aura.expirationTime - GetTime() == 12 then
         PlaySoundFile("Interface\\AddOns\\Blueberry\\blue.ogg", "Master")
       end
     end
   end
-end)
+end
+
+local bf = CreateFrame("FRAME", "BlueberryFrame")
+bf:RegisterUnitEvent("UNIT_AURA", "player")
+bf:SetScript("OnEvent", Blueberry)
